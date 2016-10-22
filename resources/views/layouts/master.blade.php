@@ -26,10 +26,14 @@
           var albatross = new Product ('Albatross', 60.00)
 
           function start() {
-            document.getElementsByClassName('Duck')[0].children[2].addEventListener('click', () => addProductToCart(duck))
-            document.getElementsByClassName('Anteater')[0].children[2].addEventListener('click', () => addProductToCart(anteater))
-            document.getElementsByClassName('Albatross')[0].children[2].addEventListener('click', () => addProductToCart(albatross))
-
+            var product;
+            if(product = document.getElementsByClassName('Duck')[0]){
+              product.children[2].addEventListener('click', () => addProductToCart(duck))
+            } if(product = document.getElementsByClassName('Anteater')[0]){
+              product.children[2].addEventListener('click', () => addProductToCart(anteater))
+            } if(product = document.getElementsByClassName('Albatross')[0]){
+              product.children[2].addEventListener('click', () => addProductToCart(albatross))
+            }
           }
 
           function addProductToCart(product) {
