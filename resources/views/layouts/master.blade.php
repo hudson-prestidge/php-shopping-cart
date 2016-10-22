@@ -43,9 +43,13 @@
             var newProduct = document.createElement("div")
             newProduct.innerHTML = product.name + " $" + product.price + " <button> Remove from Cart </button>"
             newProduct.children[0].addEventListener('click', function(){
-              document.getElementsByClassName('sidebar')[0].removeChild(newProduct)
+              totalPrice -= product.price
+              numProductsInCart--
+              document.getElementsByClassName('cartProducts')[0].removeChild(newProduct)
+              document.getElementsByClassName('totalPrice')[0].innerHTML = "Total Price: " + totalPrice;
             })
-            document.getElementsByClassName('sidebar')[0].appendChild(newProduct)
+            document.getElementsByClassName('cartProducts')[0].appendChild(newProduct)
+            document.getElementsByClassName('totalPrice')[0].innerHTML = "Total Price: " + totalPrice;
           }
         </script>
 

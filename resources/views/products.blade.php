@@ -2,8 +2,10 @@
 
 @section('sidebar')
 <div class="sidebar">
-  <h2> Products In Cart </h2>
+  <h2 class="cartProducts"> Products In Cart </h2>
+  <h2 class="totalPrice"> Total Price: 0 </h2>
 </div>
+
 
 @section('content')
   <div class="content">
