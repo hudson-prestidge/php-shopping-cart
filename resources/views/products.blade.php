@@ -1,142 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.master')
 
-        <title>Laravel</title>
+@section('content')
+  <div class="content">
+      <div class="title m-b-md">
+         Product Page
+      </div>
+      <div class="links">
+        <a href="/"> Home </a>
+        <a href="/products"> Products </a>
+        <a href="/cart"> Cart </a>
+      </div>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+      <?php
+        class Product {
+          public $name;
+          public $price;
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-                box-sizing: border-box;
-                webkit-box-sizing: border-box;
-                moz-box-sizing: border-box;
+          public function __construct($name, $price) {
+            $this->name = $name;
+            $this->price = $price;
+          }
+        }
+        $duck = new Product("Duck", 10.00);
+        $anteater = new Product("Anteater", 45.00);
+        $albatross = new Product("Albatross", 60.00);
+        $products = array($duck, $anteater, $albatross);
+      ?>
+
+      <div class="products">
+        <h4> Available Products: </h4>
+        <ul>
+          <?php
+            foreach($products as $product) {
+              echo "<div class='product $product->name'>
+                      <div class='product-name'>" .
+                      $product->name .
+                      "</div>
+                      <div class='product-price'> Price: $" . $product->price .
+                      "</div> <button class='add-to-cart-btn'> Add To Cart </button>
+                    </div>";
             }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-                width: 80%;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-
-            .products {
-            }
-
-            .product {
-            }
-
-            .product-name {
-              float: left;
-              display: inline;
-              width: 33%;
-            }
-
-            .product-price {
-              width: 33%;
-              float: left;
-              display: inline;
-            }
-
-            .add-to-cart-btn {
-              width: 23%;
-              margin: 0 5%;
-              float: right;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div class="title m-b-md">
-                   Product Page
-                </div>
-                <div class="links">
-                  <a href="/"> Home </a>
-                  <a href="/products"> Products </a>
-                  <a href="/cart"> Cart </a>
-                </div>
-
-                <?php
-                  class Product {
-                    public $name;
-                    public $price;
-
-                    public function __construct($name, $price) {
-                      $this->name = $name;
-                      $this->price = $price;
-                    }
-                  }
-                  $duck = new Product("Duck", 10.00);
-                  $anteater = new Product("Anteater", 45.00);
-                  $albatross = new Product("Albatross", 60.00);
-                  $products = array($duck, $anteater, $albatross);
-                ?>
-
-                <div class="products">
-                  <h4> Available Products: </h4>
-                  <ul>
-                    <?php
-                      foreach($products as $product) {
-                        echo "<div class='product'>
-                                <div class='product-name'>" .
-                                $product->name .
-                                "</div>
-                                <div class='product-price'> Price: $" . $product->price .
-                                "</div> <button class='add-to-cart-btn'> Add To Cart </button>
-                              </div>";
-                      }
-                     ?>
-                  </ul>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+           ?>
+        </ul>
+      </div>
+  </div>
