@@ -37,12 +37,14 @@
           }
 
           function addProductToCart(product) {
-            console.log('adding a ' + product.name + ' I guess');
             productsInCart.push(product)
             totalPrice += product.price
             numProductsInCart++
             var newProduct = document.createElement("div")
-            newProduct.innerHTML = product.name + " $" + product.price
+            newProduct.innerHTML = product.name + " $" + product.price + " <button> Remove from Cart </button>"
+            newProduct.children[0].addEventListener('click', function(){
+              document.getElementsByClassName('sidebar')[0].removeChild(newProduct)
+            })
             document.getElementsByClassName('sidebar')[0].appendChild(newProduct)
           }
         </script>
