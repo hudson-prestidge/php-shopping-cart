@@ -41,6 +41,9 @@
             productsInCart.push(product)
             totalPrice += product.price
             numProductsInCart++
+            var newProduct = document.createElement("div")
+            newProduct.innerHTML = product.name + " $" + product.price
+            document.getElementsByClassName('sidebar')[0].appendChild(newProduct)
           }
         </script>
 
@@ -59,6 +62,9 @@
                 box-sizing: border-box;
                 webkit-box-sizing: border-box;
                 moz-box-sizing: border-box;
+            }
+            .sidebar {
+              float: right;
             }
             .full-height {
                 height: 100vh;
@@ -119,6 +125,8 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
+            </div>
+            <div class="sidebar">
             </div>
         </div>
     </body>

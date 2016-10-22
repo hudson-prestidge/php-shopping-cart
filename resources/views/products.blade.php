@@ -1,5 +1,10 @@
 @extends('layouts.master')
 
+@section('sidebar')
+<div class="sidebar">
+  <h2> Products In Cart </h2>
+</div>
+
 @section('content')
   <div class="content">
       <div class="title m-b-md">
