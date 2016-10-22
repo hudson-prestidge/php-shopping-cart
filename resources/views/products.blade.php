@@ -73,6 +73,7 @@
                 <div class="links">
                   <a href="/"> Home </a>
                   <a href="/products"> Products </a>
+                  <a href="/cart"> Cart </a>
                 </div>
 
                 <?php
