@@ -19,6 +19,9 @@
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+                box-sizing: border-box;
+                webkit-box-sizing: border-box;
+                moz-box-sizing: border-box;
             }
 
             .full-height {
@@ -43,6 +46,7 @@
 
             .content {
                 text-align: center;
+                width: 80%;
             }
 
             .title {
@@ -61,6 +65,30 @@
 
             .m-b-md {
                 margin-bottom: 30px;
+            }
+
+            .products {
+            }
+
+            .product {
+            }
+
+            .product-name {
+              float: left;
+              display: inline;
+              width: 33%;
+            }
+
+            .product-price {
+              width: 33%;
+              float: left;
+              display: inline;
+            }
+
+            .add-to-cart-btn {
+              width: 23%;
+              margin: 0 5%;
+              float: right;
             }
         </style>
     </head>
@@ -97,7 +125,13 @@
                   <ul>
                     <?php
                       foreach($products as $product) {
-                        echo "<li>" . $product->name . "</li>";
+                        echo "<div class='product'>
+                                <div class='product-name'>" .
+                                $product->name .
+                                "</div>
+                                <div class='product-price'> Price: $" . $product->price .
+                                "</div> <button class='add-to-cart-btn'> Add To Cart </button>
+                              </div>";
                       }
                      ?>
                   </ul>
